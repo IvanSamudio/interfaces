@@ -45,8 +45,8 @@ function mostrarEj1() {
       }
     );
 
-  let maxFil = 3;
-  let maxCol = 3;
+  let maxFil = 100;
+  let maxCol = 100;
   let maxNum = 100;
   let mat = [];
   let prom = [];
