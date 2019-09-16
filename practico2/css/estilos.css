@@ -1,0 +1,8 @@
+
+body{
+  background-image: url("../img/fondo.jpg");
+}
+
+#canv{
+  border: #000 solid 10px;
+}
