@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", load );
 let ancho;
-var FPS = 60;
+let idtime;
+var FPS = 50;
 var intervalo;
 var gameLoop;
 var posicion;
@@ -19,14 +20,15 @@ var pers = {
 var nivel = {
   puntos:0,
   muerto:false,
-  velocidad:4,
-  aumento:300,
+  velocidad:15,
+  aumento:150,
   vidaActual: 100
 }
 
 var obstaculo = {
   x:0,
   y:100,
+  activado:false,
   colision:false
 }
 
@@ -43,6 +45,8 @@ function iniciarJuego() {
     principal();
   },1000/FPS);
   animateprogress("#barraVida",100);
+  crearDiv("bola");
+  crearDiv("bonus");
   setTimeout("document.querySelector('.tutorial').style.visibility='hidden'",5000);
 }
 
@@ -71,8 +75,9 @@ function resetearBonus() {
 function resetearNivel() {
   nivel.puntos=0;
   nivel.muerto=false;
-  nivel.velocidad = 4;
+  nivel.velocidad = 15;
   nivel.vidaActual=100;
+  nivel.aumento = 150;
 }
 
 
@@ -80,6 +85,12 @@ function crearDiv(nombreClase) {
     let nuevoDiv = document.createElement("div");
     nuevoDiv.classList.add(nombreClase);
     document.querySelector("#fondo").appendChild(nuevoDiv);
+}
+
+function eliminarDiv(nombreClase) {
+  let documento = document.querySelector("."+nombreClase);
+  let node = document.getElementById("fondo");
+  node.removeChild(documento);
 }
 
 function logicaObstaculo() {
@@ -100,7 +111,6 @@ function logicaBonus() {
   if (bonus.x < -100) {
     resetearBonus();
   }else if ( bonus.probabilidad >= 5 && bonus.activado == false){
-    crearDiv("bonus");
     bonus.x += probabilidadBonus(200,ancho);
     bonus.y = probabilidadBonus(100,150);
     bonus.activado = true;
@@ -136,7 +146,6 @@ function estaChocando(objeto) {
 }
 
 function colision() {
-  if (bolas!= "") {
     if (estaChocando(bolas[contador]))  {
       bolas[contador].colision = true;
       nivel.muerto = true;
@@ -146,6 +155,8 @@ function colision() {
         if (nivel.vidaActual == 0) {
           clearInterval(gameLoop);
           actualizarValores("paused","block");
+          eliminarDiv("bonus");
+          eliminarDiv("bola");
           document.querySelector(".puntosTotales").innerHTML= "Score = " + nivel.puntos;
         }
       }
@@ -163,7 +174,6 @@ function colision() {
       }
       document.querySelector(".puntos").innerHTML= "Score = " + nivel.puntos;
     }
-  }
 }
 
 
@@ -219,18 +229,24 @@ function redibujar(){
       }
       else if(!personaje.classList.contains("corriendo") && pers.altura == 0){
         if (personaje.classList.contains("muerte")) {
+          console.log("entro aca");
           personaje.classList.remove("muerte");
+          clearTimeout(idtime);
         }
         personaje.classList.remove("cayendo");
         personaje.classList.add("corriendo");
       }
     }
-
 }
+
 
 function animacionMuerte() {
-  setTimeout(function(){ nivel.muerto = false;}, 0900);
+   idtime = setTimeout(function() {
+      nivel.muerto = false;
+   }, 0900);
 }
+
+
 
 function reiniciarJuego() {
   actualizarValores("initial","none");
@@ -244,7 +260,6 @@ function reiniciarJuego() {
 function principal() {
   comprobar();
   gravedad();
-  crearDiv("bola");
   logicaObstaculo();
   logicaBonus();
   colision();
