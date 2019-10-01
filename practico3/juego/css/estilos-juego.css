@@ -1,0 +1,226 @@
+#fondo{
+    background-image: url('../img/cielo.png');
+    height: 400px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: -1000;
+    overflow: hidden;
+}
+
+.tutorial{
+  position: absolute;
+  padding: 10px;
+  width: 40%;
+  z-index: -30;
+  height: 60%;
+  left: 10%;
+  top: 10%;
+}
+
+#gameOver{
+  position: absolute;
+  width: inherit;
+  z-index: 100;
+  height: inherit;
+  background-image: url('../img/gameOver.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ADADAD ;
+  opacity:0.7;
+  display: none;
+}
+
+#gameOver .puntosTotales{
+  position: absolute;
+  font-size: 40px;
+  -webkit-text-stroke: 2px #000000  ;
+  color: #FE1919 ;
+  left: 43%;
+  bottom: 12%;
+}
+
+#gameOver p {
+  position: absolute;
+  -webkit-text-stroke: 2px #000000;
+  color: #FE1919 ;
+  font-size: 40px;
+  top: 0%;
+  left: 38%;
+}
+
+.tutorial p {
+  -webkit-text-stroke: 2px black;
+  color: transparent;
+}
+
+.tutorial .imgSkin{
+  width: 30%;
+  height: 100%;
+  margin-right: 15px;
+  float: left;
+}
+
+.tutorial .space{
+  width: 40%;
+  height: 60px;
+
+}
+
+#nieveCayendo{
+    background-image: url('../img/nieveCayendo.png');
+    height: 400px;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    z-index: -40;
+    animation: animacionNieveCayendo 30s linear infinite;
+}
+
+@keyframes animacionNieveCayendo{
+    100%{
+        background-position-y: +900px;
+    }
+}
+
+#nubes{
+    background-image: url('../img/nubes.png');
+    position: absolute;
+    z-index: -50;
+    height: 300px;
+    width: 100%;
+    animation: animacionNubes 30s linear infinite;
+}
+@keyframes animacionNubes{
+    100%{
+        background-position-x: -800px;
+    }
+}
+#sierra{
+    background-image: url('../img/sierra.png');
+    position: absolute;
+    bottom: 0;
+    z-index: -40;
+    height: 500px;
+    width: 100%;
+    animation: animacionSierra 20s linear infinite;
+}
+@keyframes animacionSierra{
+    100%{
+        background-position-x: -2048px;
+    }
+}
+#nieve{
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    height: 50px;
+    width: 100%;
+    background-image: url('../img/nieve.png');
+    animation: animacionNieve 20s linear infinite;
+}
+@keyframes animacionNieve{
+    100%{
+        background-position-x: -1600px;
+    }
+}
+#personaje{
+    position: absolute;
+    z-index: 10;
+    height: 130px;
+    width: 94px;
+    left: 5px;
+    bottom: 0px;
+}
+
+#puntos{
+    position: absolute;
+    z-index: 0;
+    height: 60px;
+    width: 300px;
+    left: 0;
+    top: 0;
+
+}
+
+#puntos .cara{
+  width: 20%;
+  height: 100%;
+  float: left;
+  border: 8px solid #9B1414;
+}
+#puntos #barraVida{
+  float: right;
+  width: 74%;
+  height: 60%;
+  border: 8px solid #9B1414;
+  background-color: #C60255;
+}
+
+.correr{
+    background-size: 940px 130px !important;
+    background: url('../img/personaje-corriendo.png') left center;
+    animation: animacionCorrer 0.8s steps(11) infinite;
+}
+
+.muerte{
+    background-size: 940px 130px !important;
+    background: url('../img/personaje-muerte.png') left center;
+    animation: animacionCorrer 2s steps(9) infinite;
+}
+@keyframes animacionCorrer{
+    100%{
+        background-position: -940px;
+    }
+}
+.saltando{
+    background-size: 470px 130px !important;
+    background: url('../img/personaje-saltando.png') left center;
+    animation: animacionSaltar 2s steps(4);
+    animation-fill-mode: forwards;
+}
+.cayendo{
+    background-size: 470px 130px !important;
+    background: url('../img/personaje-bajando.png') left center;
+    animation: animacionSaltar 2s steps(4);
+    animation-fill-mode: forwards;
+}
+@keyframes animacionSaltar{
+    0%{
+        background-position-x: 0;
+    }
+    100%{
+        background-position-x: -376px;
+    }
+}
+
+.bola{
+    position: absolute;
+    background-image: url('../img/objeto.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 20;
+    width: 30px;
+    height: 30px;
+    left: -100px;
+    bottom: 100px;
+}
+.bonus{
+    position: absolute;
+    z-index: 10;
+    height: 70px;
+    width: 80px;
+    left: -100px;
+    bottom: 100px;
+    background-size: 470px 70px !important;
+    background: url('../img/corazon.png') left center;
+    animation: animacionBonus 1s steps(6) infinite;
+}
+
+@keyframes animacionBonus{
+  100%{
+      background-position-x: -940px;
+  }
+}

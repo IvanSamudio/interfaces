@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JUEGO</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/estilos-juego.css" />
+</head>
+<body>
+    <div id="fondo">
+        <div id="puntos">
+          <img src="img/cara.png" alt="" class="cara">
+          <progress value="100" max="100" id="barraVida" >0%</progress>
+          <span></span>
+          <br>
+          <span class="puntos"></span>
+        </div>
+        <div class="tutorial">
+          <img src="img/skin.png" alt="" class="imgSkin">
+          <p>PRESS SPACEBAR To JUMP</p>
+          <img src="img/spacebar.png" alt="" class="space">
+        </div>
+        <div id="nubes"></div>
+        <div id="nieveCayendo"></div>
+        <div id="sierra"></div>
+        <div id="nieve"></div>
+        <div id="personaje" class="correr"></div>
+        <div id="gameOver">
+          <span class="puntosTotales"></span>
+          <p>Press space to restart</p>
+        </div>
+    </div>
+    <script src="js/juego.js"></script>
+</body>
+</html>
