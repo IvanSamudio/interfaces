@@ -38,6 +38,7 @@ var bonus = {
   colision:false,
   activado:false,
   probabilidad:0
+  
 }
 
 function iniciarJuego() {
