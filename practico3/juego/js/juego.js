@@ -22,7 +22,7 @@ var nivel = {
   muerto:false,
   velocidad:15,
   aumento:150,
-  vidaActual: 100
+  vidaActual: 0
 }
 
 var obstaculo = {
@@ -56,7 +56,7 @@ function load() {
   ancho = document.querySelector("#fondo").offsetWidth;
   obstaculo.x = ancho;
   bonus.x = ancho;
-  iniciarJuego();
+  actualizarValores("paused","block");
 }
 
 function resetearObstaculo() {
@@ -198,12 +198,14 @@ function comprobar() {
 }
 
 document.addEventListener('keydown' , function(evento){
-    if (nivel.vidaActual > 0) {
+    if (nivel.vidaActual > 0 && nivel.muerto == false) {
       if(evento.keyCode == 32){
         saltar();
       }
     }else {
+
       if(evento.keyCode == 32){
+        document.querySelector(".gameInicio").style.display = "none";
         reiniciarJuego();
       }
     }
@@ -229,7 +231,6 @@ function redibujar(){
       }
       else if(!personaje.classList.contains("corriendo") && pers.altura == 0){
         if (personaje.classList.contains("muerte")) {
-          console.log("entro aca");
           personaje.classList.remove("muerte");
           clearTimeout(idtime);
         }
