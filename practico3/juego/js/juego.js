@@ -19,9 +19,10 @@ var pers = {
 };
 var nivel = {
   puntos:0,
-  muerto:false,
+  muerto:true,
   velocidad:10,
   aumento:150,
+  iniciado:false,
   vidaActual: 0
 }
 
@@ -79,6 +80,7 @@ function resetearNivel() {
   nivel.velocidad = 10;
   nivel.vidaActual=100;
   nivel.aumento = 150;
+  nivel.iniciado = true;
 }
 
 
@@ -155,6 +157,7 @@ function colision() {
         animateprogress("#barraVida",nivel.vidaActual);
         if (nivel.vidaActual == 0) {
           clearInterval(gameLoop);
+          nivel.iniciado = false;
           actualizarValores("paused","block");
           eliminarDiv("bonus");
           eliminarDiv("bola");
@@ -204,9 +207,9 @@ document.addEventListener('keydown' , function(evento){
         saltar();
       }
     }else {
-
-      if(evento.keyCode == 32){
+      if((evento.keyCode == 32)&&(nivel.iniciado == false)){
         document.querySelector(".gameInicio").style.display = "none";
+        nivel.iniciado = true;
         reiniciarJuego();
       }
     }
@@ -215,13 +218,12 @@ document.addEventListener('keydown' , function(evento){
 
 
 function redibujar(){
-    if (nivel.muerto == true) {
+    if (nivel.muerto) {
+      animacionMuerte();
       personaje.classList.remove("corriendo");
       personaje.classList.remove("saltando");
       personaje.classList.add("muerte");
-      animacionMuerte();
-    }else{
-      if(pers.vy > 0){
+    }else if(pers.vy > 0){
         personaje.classList.remove("corriendo");
         personaje.classList.remove("cayendo");
         personaje.classList.add("saltando");
@@ -239,7 +241,6 @@ function redibujar(){
         personaje.classList.add("corriendo");
       }
     }
-}
 
 
 function animacionMuerte() {
@@ -256,14 +257,15 @@ function reiniciarJuego() {
   resetearNivel();
   resetearBonus();
   iniciarJuego();
+  bolas[contador] = obstaculo;
 }
 
 
 function principal() {
-  comprobar();
-  gravedad();
   logicaObstaculo();
   logicaBonus();
+  gravedad();
+  comprobar();
   colision();
   redibujar();
   personaje.style.bottom = pers.altura + "px";
