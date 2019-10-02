@@ -20,7 +20,7 @@ var pers = {
 var nivel = {
   puntos:0,
   muerto:false,
-  velocidad:15,
+  velocidad:10,
   aumento:150,
   vidaActual: 0
 }
@@ -38,7 +38,7 @@ var bonus = {
   colision:false,
   activado:false,
   probabilidad:0
-  
+
 }
 
 function iniciarJuego() {
@@ -76,7 +76,7 @@ function resetearBonus() {
 function resetearNivel() {
   nivel.puntos=0;
   nivel.muerto=false;
-  nivel.velocidad = 15;
+  nivel.velocidad = 10;
   nivel.vidaActual=100;
   nivel.aumento = 150;
 }
