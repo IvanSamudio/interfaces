@@ -242,3 +242,14 @@
       background-position-x: -940px;
   }
 }
+
+.boton_personalizado{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #000000;
+    border-radius: 6px;
+    border: 1px solid #FE1919;
+  }
