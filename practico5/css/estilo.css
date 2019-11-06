@@ -1045,14 +1045,10 @@ footer{
     background-color: rgb(153, 146, 146);
 }
 
-.resultados .dropdown .dropdown-menu a:hover{
+.dropdown .dropdown-menu a:hover{
     background-color: #82ADFF;
     color: white;
 
-}
-
-.resultados .dropdown {
-    margin-top: 80px;
 }
 
 
@@ -1063,7 +1059,7 @@ footer{
 /* RESPONSIVE */
 
 @media screen and (max-width: 991px){
-    #sideMenu,#navbar label,.items_sideMenu #tv,.items_sideMenu #pelis,.items_sideMenu .miLista,#mostrarMas,,#lupaResponsive{
+    #sideMenu,#navbar label,.items_sideMenu #tv,.items_sideMenu #pelis,.items_sideMenu .miLista,#mostrarMas,#lupaResponsive{
         display: block;
     }
 
