@@ -315,6 +315,7 @@ footer{
     height: 60px;
     margin-top: 20px;
     text-align: left;
+    padding-left: 30px;
 }
 
 /* ESTILOS CARROUSEL ESTRENOS */
@@ -1224,6 +1225,7 @@ footer{
     /* LOGIN */
     .login{
         padding-top: 80px;
+        padding-bottom: 13%;
     }
     
     .formulario{
