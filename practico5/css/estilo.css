@@ -1041,15 +1041,6 @@ footer{
     clear: both;
 }
 
-.resultados .dropdown #dropdownMenuButton, .resultados .dropdown .dropdown-menu{
-    background-color: rgb(153, 146, 146);
-}
-
-.dropdown .dropdown-menu a:hover{
-    background-color: #82ADFF;
-    color: white;
-
-}
 
 
 
