@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", load );
-
+let busqueda;
 function load() {
   mostrarLogin();
   
@@ -33,11 +33,29 @@ function load() {
             document.querySelector("#pelis").addEventListener("click", mostrarPelis);
             document.querySelector("#pelisResponsive").addEventListener("click", mostrarPelis);
             document.querySelector("#pelisHome").addEventListener("click", mostrarPelis);
-            document.querySelector("#lupaResponsive").addEventListener("click", buscar);
-            document.querySelector("#lupa").addEventListener("click", buscar);
             document.querySelector("#tv").addEventListener("click", mostrarSeries);
             document.querySelector("#tvResponsive").addEventListener("click", mostrarSeries);
             document.querySelector(".tvHome").addEventListener("click", mostrarSeries);
+            const input = document.getElementById("search-input");
+            const searchBtn = document.getElementById("search-btn");
+            const expand = () => {
+            searchBtn.classList.toggle("close");
+            input.classList.toggle("square");
+            input.addEventListener('keydown', function(evento){ 
+              if(evento.keyCode == 13){
+                evento.preventDefault();
+                if(input.value != ""){
+                  busqueda = input.value;
+                  mostrarResultados();
+                }else{
+                  input.style.backgroundColor = "#E50914";
+                } 
+              }else if(input.style.backgroundColor = "#E50914" && input.value != ""){
+                input.style.backgroundColor = "initial";
+              }
+            });
+            };
+            searchBtn.addEventListener("click", expand);
             mostrarHome();
           }
         );
@@ -50,6 +68,9 @@ function load() {
           busqueda.classList.toggle("busqueda-novisible");
           input_bus.focus();
           busqueda.addEventListener("focusout", ocultar);
+          
+          
+          
           document.querySelector(".busqueda-input").addEventListener('keydown' , function(evento){
             if(evento.keyCode == 13){
               mostrarResultados();
@@ -140,6 +161,8 @@ function load() {
             response.text().then(
               function(texto){
                 document.querySelector("#main-section").innerHTML = texto;
+                document.querySelector(".miListaTitulo").innerHTML = "Resultados para: " + busqueda;
+
               }
               );
            }
