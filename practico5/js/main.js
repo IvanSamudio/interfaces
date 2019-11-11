@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", load );
 let busqueda;
 function load() {
   mostrarLogin();
-  
 
       function mostrarLogin(){
         fetch("html/login.html").then(
@@ -12,6 +11,8 @@ function load() {
             document.querySelector("#main-section").innerHTML = texto;
             document.querySelector(".crearCuenta").addEventListener("click", mostrarPlanes);
             document.querySelector(".iniciarSesion").addEventListener("click", mostrarNav);
+            document.querySelector(".information").addEventListener("click", mostrarAyuda);
+            document.querySelector(".ayuda").addEventListener("click", mostrarAyuda);
               }
             );
               }
@@ -36,9 +37,11 @@ function load() {
             document.querySelector("#tv").addEventListener("click", mostrarSeries);
             document.querySelector("#tvResponsive").addEventListener("click", mostrarSeries);
             document.querySelector(".tvHome").addEventListener("click", mostrarSeries);
+            let brandname = document.getElementById('logo');
             const input = document.getElementById("search-input");
             const searchBtn = document.getElementById("search-btn");
             const expand = () => {
+            brandname.classList.toggle("desaparecerLogo");
             searchBtn.classList.toggle("close");
             input.classList.toggle("square");
             input.addEventListener('keydown', function(evento){ 
@@ -67,10 +70,7 @@ function load() {
           let input_bus = document.getElementById('busqueda-input');
           busqueda.classList.toggle("busqueda-novisible");
           input_bus.focus();
-          busqueda.addEventListener("focusout", ocultar);
-          
-          
-          
+          busqueda.addEventListener("focusout", ocultar);  
           document.querySelector(".busqueda-input").addEventListener('keydown' , function(evento){
             if(evento.keyCode == 13){
               mostrarResultados();
@@ -94,6 +94,19 @@ function load() {
               document.querySelector("#main-section").innerHTML = texto;
               document.querySelector(".pelicula").addEventListener("click", mostrarPelicula);
               document.querySelector(".serie").addEventListener("click", mostrarSerie);
+            }
+            );
+          }
+          );
+        }
+
+        function mostrarAyuda(){
+          fetch("html/ayuda.html").then(
+            function(response){
+              response.text().then(
+            function(texto){
+              document.querySelector("#main-section").innerHTML = texto;
+              document.querySelector(".logoAyuda").addEventListener("click", mostrarLogin);
             }
             );
           }
@@ -161,7 +174,7 @@ function load() {
             response.text().then(
               function(texto){
                 document.querySelector("#main-section").innerHTML = texto;
-                document.querySelector(".miListaTitulo").innerHTML = "Resultados para: " + busqueda;
+                document.querySelector(".resultadosTitulo").innerHTML = "Resultados para: " + busqueda;
 
               }
               );
@@ -206,6 +219,8 @@ function load() {
           response.text().then(
             function(texto){
               document.querySelector("#main-section").innerHTML = texto;
+              document.querySelector('.serie').addEventListener('click', mostrarSerie);
+              document.querySelector(".pelicula").addEventListener("click", mostrarPelicula);
             }
             );
          }
@@ -237,6 +252,4 @@ function load() {
           dots.style.display = "none";
         }
       }
-
-      
 }

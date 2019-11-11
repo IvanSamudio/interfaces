@@ -19,6 +19,10 @@ body{
     display: none;
 }
 
+.descText{
+    position: relative;
+}
+
 
 /* LOGIN */
 
@@ -166,6 +170,10 @@ body{
     -ms-transform: translate(-100%, -50%);
     transform: translate(-100%, -50%);
   }
+
+  .search:focus{
+      outline: none;
+  }
   
   .search:before {
     content: "";
@@ -225,7 +233,7 @@ body{
     padding: 0 40px 0 10px;
     width: 300px;
     height: 47px;
-    border: 4px solid #ffffff;
+    border: 2px solid #82ADFF;
     border-radius: 0;
     background: none;
     color: #fff;
@@ -439,7 +447,7 @@ body{
 }
 
 .linea-separadora{
-    width: 98%;
+    width: 90%;
     height: 1px;
     background-color: #82ADFF;
     margin-top: 10px;
@@ -572,12 +580,12 @@ footer .row label{
     width: auto;
     margin-left: 5%;
     margin-right: 5%;
-    height: 500px;
+    height: 800px;
 }
 
 .carousel-inner img{
     width: auto;
-    height: 500px;
+    height: 800px;
 }
 .texto-carrusel{
     text-align: left;
@@ -640,7 +648,7 @@ footer .row label{
     margin-bottom: 30px;
     display: flex;
     height: 250px;
-    width: 95%;
+    width: 90%;
     overflow-y:hidden;
     overflow-x: scroll;
 }
@@ -1144,6 +1152,48 @@ footer .row label{
     box-shadow: 5px 5px 5px black;
 }
 
+.peliculasMiLista label{
+    margin-left: 40%;
+    margin-top: 60%;
+    cursor: pointer;
+}
+
+.peliculasMiLista input{
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+.peliculasMiLista input + span{
+    position: absolute;
+    background: none;
+    width: 64px;
+    border-radius: 70px;
+    border: white solid;
+    font-size: 40px;
+}
+
+.peliculasMiLista i{
+    opacity: 100%;
+    margin-left: 8px;
+    margin-top: 10px;
+}
+
+
+
+.peliculasMiLista input:checked + span{
+    color: #82ADFF;
+    border: #82ADFF solid;
+}
+
+
+/* #82ADFF */
+
+.peliculasMiLista:hover button{
+    margin-left: 45%;
+    margin-top: 65%;
+}
+
 .peliculasMiLista div{
     transition: ease-in 0.4s;
     opacity: 0;
@@ -1153,26 +1203,13 @@ footer .row label{
     background: none;
 }
 
-.peliculasMiLista:hover{
-    z-index: 7;
-}
-
 .peliculasMiLista:hover div{
     transform: scale(1.1);
     /* transition-delay: 0.3s; */
-    opacity: 0.8;
+    opacity: 1;
     z-index: 3;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.794);
     color: white;
-}
-
-.peliculasMiLista p{
-    /* transform: rotatey(180deg); */
-    text-align: center;
-    /* position: absolute; */
-    margin-top: 45%;
-    font-size: 40px;
-    
 }
 
 
@@ -1308,17 +1345,115 @@ footer .row label{
     clear: both;
 }
 
+/* AYUDA */
+
+
+.iconoAyuda{
+    float: left;
+    font-size: 60px;
+    color: rgb(224, 218, 218);
+    margin-left: 100px;
+    margin-right: 40px;
+    margin-bottom: 110px;
+}
+.iconLarge{
+    margin-bottom: 200px;
+}
+
+.tituloAyuda{
+    font-size: 26px;
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-bottom: 35px;
+    color: rgb(224, 218, 218);
+}
+
+.datosAyuda,.listaAyuda{
+    color: rgb(224, 218, 218);
+    font-size: 18px;
+    margin-right: 100px;
+}
+
+.logoAyuda{
+    color: #82ADFF;
+	text-decoration: none;
+	font-weight: bold;
+	font-size: 40px;
+	-webkit-text-stroke: 2px black;
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 30px !important;
+    margin-left: 20px;
+}
+
+/* resultados */
+
+.filtros{
+    margin-left: 30px;
+}
+
+.menuFiltro{
+    background-color: #6c757d;
+}
+
+.itemsFiltro{
+    color: white;
+}
+
+.resultadosTitulo{
+    color: white;
+    padding-top: 35px;
+    font-size: 30px;
+    width: 100%;
+}
 
 
 
 
 
+/*  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
 /* RESPONSIVE */
 
 @media screen and (max-width: 991px){
+
+ 
+        .peliculasMiLista:hover img{
+            z-index: inherit;
+            transform: inherit;
+            box-shadow: inherit;
+        }
+        
+        .peliculasMiLista label{
+            display: none;
+            margin-left: inherit;
+            margin-top: inherit;
+            cursor: inherit;
+        }
+
+        #logo:hover{
+            transform: scale(1);
+        }
+        
+        /* #82ADFF */
+        
+        
+        .peliculasMiLista:hover div{
+            transform: inherit;
+            /* transition-delay: 0.3s; */
+            opacity: inherit;
+            z-index: inherit;
+            background-color:inherit;
+            color: inherit;
+        }
+    
     #sideMenu,#navbar label,.items_sideMenu #tv,.items_sideMenu #pelis,.items_sideMenu .miLista,#mostrarMas,#lupaResponsive{
         display: block;
+    }
+
+    .item:hover{
+        margin: inherit;
+        transform: inherit;
     }
 
     .mobile{
@@ -1360,37 +1495,99 @@ footer .row label{
 
    /* BUSQUEDA */
 
-#content {
+   .desaparecerLogo{
+       transition:  ease-in-out;
+       opacity: 0;
+   }
+
+   #content {
     position: absolute;
     height: 20px;
     width: 20px;
-    margin-left: 180px;
+    margin-left: 200px;
     top: 23px;
-    right: 20px;
-}
+    right: -1%;
+    transform: translate(-50%, -50%);
+  }
   
+  #content.on {
+    -webkit-animation-name: in-out;
+    animation-name: in-out;
+    -webkit-animation-duration: 0.7s;
+    animation-duration: 0.7s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+  }
   
   .inputLupa {
-    width: 25px;
-    height: 25px;
-    border: 3px solid #fff;
-    margin-top: 5px;
+    width: 12px;
+    height: 12px;
+    border: 2px solid #82ADFF;
+    border-radius: 50%;
+    background: none;
+    color: #82ADFF;
+    font-size: 16px;
+    font-weight: 40;
+    font-family: Roboto;
+    outline: 0;
+    -webkit-transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out,
+      padding 0.2s;
+    transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out,
+      padding 0.2s;
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
   }
   
   .search {
-    top: 5px;
+    background: none;
+    position: absolute;
+    top: 0;
     left: 0;
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
     padding: 0;
+    border-radius: 100%;
+    outline: 0;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(-100%, -50%);
+  }
+
+  .search:focus{
+      outline: none;
   }
   
   .search:before {
-    width: 12px;
-    height: 4px;
-    background-color: #fff;
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 2px;
+    background-color: #82ADFF;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
     margin-top: 12px;
-    margin-left: 26px;
+    margin-left: 22px;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .close {
+    top: 8px;
+    -webkit-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;  
   }
   
   .close:before {
@@ -1428,7 +1625,7 @@ footer .row label{
     padding: 0 40px 0 10px;
     width: 300px;
     height: 47px;
-    border: 4px solid #ffffff;
+    border: 2px solid #82ADFF;
     border-radius: 0;
     background: none;
     color: #fff;
@@ -1436,17 +1633,16 @@ footer .row label{
     font-size: 16px;
     font-weight: 400;
     outline: 0;
-    background-color: rgba(0, 0, 0, 0.90);
-    -webkit-transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out,
+    -webkit-transition: width 0.3s ease-in-out, border-radius 0.4s ease-in-out,
       padding 0.2s;
-    transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out,
+    transition: width 0.3s ease-in-out, border-radius 0.4s ease-in-out,
       padding 0.2s;
     -webkit-transition-delay: 0.4s, 0s, 0.4s;
     transition-delay: 0.4s, 0s, 0.4s;
     -webkit-transform: translate(-100%, -50%);
     -ms-transform: translate(-100%, -50%);
     transform: translate(-100%, -50%);
-  }
+}
 
     #logo{
         padding: 0;
@@ -1464,11 +1660,11 @@ footer .row label{
     }
 
     .carousel-inner{
-        height: 300px;
+        height: 200px;
     }
     
     .carousel-inner img{
-        height: 300px;
+        height: 200px;
     }
 
     .texto-carrusel p{
@@ -1700,6 +1896,8 @@ footer .row label{
     }
 
     /* MI LISTA */
+    
+    
 
 
     .peliculasMiLista img{
@@ -1789,7 +1987,7 @@ footer .row label{
   
 
 
-  .container-body{
+.container-body{
     flex-wrap: wrap;
 }
 
@@ -1800,6 +1998,29 @@ footer .row label{
 .colum2,
 .colum3{
     margin-top: 40px;
+}
+
+/* AYUDA */
+
+
+.iconoAyuda{
+    margin-left: 30px;
+    margin-bottom: 400px;
+}
+.iconLarge{
+    margin-bottom: 700px;
+}
+
+.tituloAyuda{
+    margin-left: 10px;
+}
+
+.datosAyuda,.listaAyuda{
+    margin-right: 10px;
+}
+
+.iconStreaming{
+    margin-bottom: 580px;
 }
 
 

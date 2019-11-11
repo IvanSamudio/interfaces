@@ -1,33 +1,34 @@
 <div class="row resultados">
-        <div class="col-5"><h4 class="miListaTitulo"></h4></div> 
+        <div class="col-"><h4 class="resultadosTitulo"></h4></div> 
 </div>
 
-<div class="d-flex">
-    <div class="dropdown mr-1">
-      <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
-        Offset
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+<div class="d-flex filtros">
+  <div class="dropdown mr-1">
+        <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+          Calidad
+        </button>
+        <div class="dropdown-menu menuFiltro" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item itemsFiltro" href="#">SD</a>
+            <a class="dropdown-item itemsFiltro" href="#">HD</a>
+            <a class="dropdown-item itemsFiltro" href="#">FULL HD</a>
+        </div>
       </div>
-    </div>
-    <div class="btn-group">
-      <button type="button" class="btn btn-secondary">Reference</button>
-      <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
-        <span class="sr-only">Toggle Dropdown</span>
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Separated link</a>
-      </div>
-    </div>
+      <div class="dropdown mr-1">
+          <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="10,20">
+            Genero
+          </button>
+          <div class="dropdown-menu menuFiltro" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item itemsFiltro" href="#">Acción</a>
+              <a class="dropdown-item itemsFiltro" href="#">Aventuras</a>
+              <a class="dropdown-item itemsFiltro" href="#">Dramáticas</a>
+              <a class="dropdown-item itemsFiltro" href="#">Terror</a>
+              <a class="dropdown-item itemsFiltro" href="#">Ciencia ficción</a>
+              <a class="dropdown-item itemsFiltro" href="#">Guerra o bélicas</a>
+          </div>
+        </div>
   </div>
-    </div>
+
+
     <div class="row justify-content-center contenidoMiLista">
         <div class="col-4 col-lg-2 peliculasMiLista"><a href="#" class="pelicula"><div class="descText"><p>Charlie y la fabrica de chocolate</p></div><img src="imagenes/6.jpg" alt="Charlie y la fabrica de chocolate"></a></div>
         <div class="col-4 col-lg-2 peliculasMiLista"><a href="#" class="serie"><div class="descText"><p>IT: Segunda Parte</p></div><img src="imagenes/it2.jpg" alt="IT Segunda Parte"></a></div>
