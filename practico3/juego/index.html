@@ -1,40 +1,85 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <meta charset="utf-8" />
-    <title>JUEGO</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/estilos-juego.css" />
+  <meta charset="utf-8" />
+  <title>JUEGO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/game-styles.css" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <div id="fondo">
-        <div id="puntos">
-          <img src="img/cara.png" alt="" class="cara">
-          <progress value="100" max="100" id="barraVida" >0%</progress>
-          <span></span>
-          <br>
-          <span class="puntos"></span>
-        </div>
-        <div class="tutorial">
-          <img src="img/skin.png" alt="" class="imgSkin">
-          <p>PRESS SPACEBAR To JUMP</p>
-          <img src="img/spacebar.png" alt="" class="space">
-        </div>
-        <div id="nubes"></div>
-        <div id="nieveCayendo"></div>
-        <div id="sierra"></div>
-        <div id="nieve"></div>
-        <div id="personaje" class="correr"></div>
-        <div id="gameOver">
-          <span class="puntosTotales"></span>
-          <p>Press space to restart</p>
-        </div>
-        <div class="gameInicio">
-          <p>Press space to start</p>
-        </div>
-    </div>
-    <br>
-    <a class="botonPersonalizado" href="https://ivansamudio.github.io/interfaces/practico3/primerEntrega/">HOME</a>
-    <script src="js/juego.js"></script>
+  <input type="checkbox" id="screen" name="screen">
+  <main class="nintendo-switch">
+
+    <aside class="actions left">
+      <i class="minus">-</i>
+      <div class="analogic">
+        <div class="center-circle"></div>
+      </div>
+      <div class="buttons">
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+      </div>
+      <div class="square"></div>
+    </aside>
+    <label class="middle" for="screen">
+      <div class="screen">
+        <div class="glass"></div>
+        <div id="background-game">
+          <div id="points">
+            <img src="img/icon.png" alt="" class="icon">
+            <progress value="100" max="100" id="health-bar" >0%</progress>
+            <span></span>
+            <br>
+            <span class="points"></span>
+          </div>
+    
+          <div class="tutorial">
+            <p>PRESS SPACEBAR To JUMP</p>
+          </div>
+    
+          <div id="clouds"></div>
+          <div id="fallingSnow"></div>
+          <div id="mountain"></div>
+          <div id="snow"></div>
+          <div id="character" class="running"></div>
+          <div id="gameOver">
+            <span class="max-points"></span>
+            <p>Press space to restart</p>
+          </div>
+          <div class="main-menu">
+            <p>Press space to start</p>
+          </div>
+      </div>
+
+      </div>
+    </label>
+
+    <aside class="actions right">
+      <i class="plus">+</i>
+      <div class="analogic">
+        <div class="center-circle"></div>
+      </div>
+      <div class="buttons">
+        <button></button>
+        <button></button>
+        <button></button>
+        <button></button>
+      </div>
+      <div class="circle"></div>
+    </aside>
+
+  </main>
+
+
+
+
+  <a class="homeButton" href="https://ivansamudio.github.io/interfaces/practico3/primerEntrega/">REGRESAR</a>
+  <script src="js/game.js"></script>
 </body>
+
 </html>

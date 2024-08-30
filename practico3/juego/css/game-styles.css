@@ -1,0 +1,767 @@
+/*INTERFAZ DE PAGINA*/
+* {
+    box-sizing: border-box;
+}
+
+input {
+    display: none;
+}
+
+button {
+    outline: 0 !important;
+    cursor:
+        pointer;
+}
+
+body {
+    background-color: #ffefcc;
+}
+
+:root {
+    /* COLORS */
+    --blue: #3cc2ef;
+    --red: #ed6077;
+    --grey: #666b80;
+    --black: #402f44;
+    --transp-black: rgba(0, 0, 0, 0.1);
+    /*  Stroke  */
+    --stroke: 4px solid #402f44;
+}
+
+.nintendo-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    position: relative;
+}
+
+.actions {
+    width: 100px;
+    height: 400px;
+    border-radius: 50px 0 0 50px;
+    border: var(--stroke);
+    text-align: center;
+    position: relative;
+    box-shadow: inset -20px 0 var(--transp-black), inset 10px 0 rgba(255, 255, 255, 0.2), inset 4px 4px rgba(255, 255, 255, 0.5);
+}
+
+.analogic {
+    width: 50px;
+    height: 50px;
+    background-color: var(--grey);
+    border-radius: 50%;
+    border: var(--stroke);
+    transform: translatex(50%);
+    position: relative;
+    margin: 30px 0 15px;
+    left: -2px;
+}
+
+.analogic:after,.analogic:before {
+    content: "";
+    position: absolute;
+    background-color: var(--black);
+    width: 100%;
+}
+
+.analogic:before {
+    width: 100%;
+    height: 4px;
+    left: 0;
+    top: 50%;
+    margin-top: -2px;
+}
+
+.analogic:after {
+    height: 100%;
+    width: 4px;
+    margin-left: -2px;
+}
+
+.center-circle {
+    background-color: inherit;
+    border: inherit;
+    border-radius: inherit;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+    box-shadow: inset -5px 0 var(--transp-black), inset 6px 0 rgba(255, 255, 255, 0.2), inset 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.actions.left {
+    background-color: var(--blue);
+}
+
+.actions.right {
+    background-color: var(--red);
+    border-radius: 0 50px 50px 0;
+}
+
+.actions.right .analogic {
+    top: 82px;
+}
+
+.actions.right .buttons {
+    top: -66px;
+}
+
+.buttons {
+    width: 70%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.buttons button {
+    border: var(--stroke);
+    background-color: var(--grey);
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    color: var(--black);
+    font-size: 12px;
+    position: absolute;
+    box-shadow: inset -3px 0 var(--transp-black);
+}
+
+.buttons button:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid var(--black);
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.buttons button:nth-child(1) {
+    left: 0;
+    top: 20px;
+    transform: rotate(-90deg);
+}
+
+.buttons button:nth-child(2) {
+    top: 0;
+    left: 50%;
+    margin-left: -13px;
+}
+
+.buttons button:nth-child(3) {
+    right: 0;
+    top: 20px;
+    transform: rotate(90deg);
+}
+
+.buttons button:nth-child(4) {
+    top: 40px;
+    left: 50%;
+    margin-left: -13px;
+    transform: rotate(180deg);
+}
+
+.circle,.square {
+    border: var(--stroke);
+    background-color: var(--grey);
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    bottom: 70px;
+    right: 15px;
+
+}
+
+.circle {
+    border-radius: 50%;
+    left: 15px;
+    right: auto;
+}
+
+.actions:after,.actions:before {
+    content: "";
+    position: absolute;
+    background-color: var(--grey);
+    z-index: -9;
+}
+
+.actions:after {
+    border: var(--stroke);
+    height: 90%;
+    width: 100%;
+    border-radius: 300px;
+    top: 20px;
+}
+
+.actions.left:after {
+    transform: rotate(14deg);
+    left: -30px;
+    box-shadow: inset -70px 100px var(--transp-black), inset -60px 80px var(--transp-black);
+}
+
+.actions.right:after {
+    transform: rotate(-14deg);
+    right: -30px;
+    box-shadow: inset 70px 100px var(--transp-black), inset 60px 80px var(--transp-black);
+}
+
+.actions:before {
+    width: 80px;
+    height: 50px;
+    top: -9px;
+    border: 2px solid var(--black)
+}
+
+.actions.left:before {
+    border-radius: 1000px 0;
+    left: -9px;
+}
+
+.actions.right:before {
+    border-radius: 0 1000px;
+    right: -9px;
+}
+
+.minus,.plus {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--black);
+    position: absolute;
+    top: 10px;
+    text-shadow: 0 2px rgba(255, 255, 255, 0.3)
+}
+
+.minus {
+    right: 10px;
+}
+
+.plus {
+    left: 10px;
+}
+
+.middle {
+    padding: 6px 10px;
+    background-color: var(--grey);
+    border-top: var(--stroke);
+    border-bottom: var(--stroke);
+    /*   min-width: 150px; */
+    box-shadow: inset 0 0 50px var(--black);
+    overflow: hidden;
+}
+
+.screen {
+    border: 30px solid var(--black);
+    background-color: var(--red);
+    border-radius: 5px;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.screen:after,.screen:before,.screen .glass,.screen .glass:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: rotate(45deg);
+}
+
+.screen .glass,
+.screen .glass:after {
+    transform: rotate(-30deg);
+    background-color: rgba(255, 255, 255, .12);
+    top: -100px;
+    z-index: 99;
+}
+
+.screen .glass:after {
+    transform: rotate(-12deg);
+}
+
+.screen:before {
+    background-color: var(--blue);
+    top: 0;
+    left: 0;
+}
+
+.screen:after {
+    background-color: #ffefcc;
+    top: -20%;
+    left: -130%;
+}
+
+/* shadow */
+.nintendo-switch:after {
+    content: "";
+    width: 600px;
+    height: 30px;
+    position: absolute;
+    background-color: var(--transp-black);
+    border-radius: 50%;
+    bottom: 110px;
+}
+
+/* Animations */
+
+@keyframes closeScreen {
+    0% {
+        transform: scalex(1);
+    }
+
+    100% {
+        transform: scalex(0);
+        width: 90px;
+    }
+}
+
+@keyframes rotateBaseLeft {
+    0% {
+        transform: rotate(14deg);
+        left: -30px;
+    }
+
+    100% {
+        transform: rotate(-14deg);
+        left: 30px;
+        opacity: 0;
+    }
+}
+
+@keyframes rotateBaseRight {
+    0% {
+        transform: rotate(-14deg);
+        right: -30px;
+    }
+
+    100% {
+        transform: rotate(14deg);
+        right: 30px;
+        opacity: 0;
+    }
+}
+
+@keyframes topBottom {
+    0% {
+        top: 0;
+    }
+
+    25% {
+        top: -40px;
+    }
+
+    50% {
+        top: 40px;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes bottomTop {
+    0% {
+        top: 0;
+    }
+
+    25% {
+        top: 40px;
+    }
+
+    50% {
+        top: -40px;
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes shadow {
+    0% {
+        width: 600px;
+    }
+
+    100% {
+        width: 300px;
+    }
+}
+
+@keyframes blueLine {
+    0% {
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    8% {
+        top: -110px;
+        transform: rotate(0deg);
+    }
+
+    90% {
+        top: -110px;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        top: -200px;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes whiteLine {
+    0% {
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    8% {
+        top: 110px;
+        transform: rotate(0deg);
+    }
+
+    90% {
+        top: 110px;
+        transform: rotate(0deg);
+    }
+
+    100% {
+        top: 200px;
+        transform: rotate(0deg);
+    }
+}
+
+input[type=checkbox]:checked+.nintendo-switch .screen {
+    animation: closeScreen 0.5s ease-out 0.2s;
+    animation-fill-mode: forwards;
+}
+
+input[type=checkbox]:checked+.nintendo-switch .screen span {
+    animation: hideText 0.5s ease-out 0.6;
+    animation-fill-mode: forwards;
+}
+
+input[type=checkbox]:checked+.nintendo-switch .actions.left:after {
+    animation: rotateBaseLeft 0.5s ease-out;
+    animation-fill-mode: forwards;
+}
+
+input[type=checkbox]:checked+.nintendo-switch .actions.right:after {
+    animation: rotateBaseRight 0.5s ease-out;
+    animation-fill-mode: forwards;
+}
+
+input[type=checkbox]:checked+.nintendo-switch .actions.right {
+    animation: topBottom 2s cubic-bezier(.02, .45, 0, 1.4) 0.8s;
+    animation-fill-mode: forwards;
+}
+
+input[type=checkbox]:checked+.nintendo-switch .actions.left {
+    animation: bottomTop 2s cubic-bezier(.02, .45, 0, 1.4) 0.9s;
+    animation-fill-mode: forwards;
+}
+
+input[type=checkbox]:checked+.nintendo-switch:after {
+    animation: shadow 0.5s ease-out 0.2s;
+    animation-fill-mode: forwards;
+}
+
+input[type=checkbox]:checked+.nintendo-switch .screen:before {
+    animation: blueLine 3s ease-out;
+    animation-fill-mode: forwards;
+}
+
+input[type=checkbox]:checked+.nintendo-switch .screen:after {
+    animation: blueLine 3s ease-out 0.4;
+    animation-fill-mode: forwards;
+}
+
+
+/*BACKGROUND*/
+#background-game {
+    background-image: url('../img/background-sky.png');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-position: center;
+    z-index: 10;
+    overflow: hidden;
+}
+
+#fallingSnow {
+    background-image: url('../img/fallingSnow.png');
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -40;
+    animation: fallingSnow-animation 30s linear infinite;
+}
+
+#clouds {
+    background-image: url('../img/clouds.png');
+    position: absolute;
+    z-index: -50;
+    height: 300px;
+    width: 100%;
+    animation: clouds-animation 30s linear infinite;
+}
+
+#mountain {
+    background-image: url('../img/mountain.png');
+    position: absolute;
+    bottom: 0;
+    z-index: -40;
+    height: 500px;
+    width: 100%;
+    animation: mountain-animation 20s linear infinite;
+}
+
+#snow {
+    background-image: url('../img/snow.png');
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    height: 50px;
+    width: 100%;
+    animation: snow-animation 20s linear infinite;
+}
+
+/*INTERFAZ*/
+#points {
+    position: absolute;
+    z-index: 0;
+    height: 60px;
+    width: 300px;
+    left: 4px;
+    top: 4px;
+    font-size: 20px;
+    text-align: center;  
+    color: #ffffff;
+    -webkit-text-stroke: 2px #030303;
+}
+
+#points .icon { 
+    width: 20%;
+    height: 100%;
+    float: left;
+    border: 4px solid #030303;
+    background-color: #030303;
+    opacity: .9;
+}
+
+#points #health-bar {
+    float: right;
+    width: 74%;
+    height: 60%;
+    border: 4px solid #030303;
+    background-color: #C60255;
+}
+
+#points span{
+    float: left;
+    padding-left: 20px; 
+}
+
+.main-menu {
+    position: absolute;
+    width: inherit;
+    z-index: 100;
+    height: inherit;
+    background-color: #000000;
+    display: block;
+
+}
+
+.main-menu p {
+    position: absolute;
+    -webkit-text-stroke: 2px #FE1919;
+    font-size: 40px;
+    top: 50%;
+    left: 50%;
+}
+
+
+.tutorial {
+    position: absolute;
+    padding: 10px;
+    width: 100;
+    z-index: -3 !important;
+    height: 100px;
+    right: 0;
+    top: 10%;
+}
+
+.tutorial p {
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+    color: transparent;
+    font-size: 20px;
+}
+
+.tutorial .character-img {
+    width: 30%;
+    height: 100%;
+    margin-right: 15px;
+    float: left;
+}
+
+.tutorial .space {
+    width: 40%;
+    height: 60px;
+}
+
+#gameOver {
+    position: absolute;
+    width: inherit;
+    z-index: 100;
+    height: inherit;
+    background-image: url('../img/gameOver.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #000000;
+    display: none;
+}
+
+#gameOver .max-points {
+    position: absolute;
+    font-size: 40px;
+    -webkit-text-stroke: 2px #740303;
+    color: #000000;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2%;
+}
+
+#gameOver p {
+    position: absolute;
+    -webkit-text-stroke: 2px #740303;
+    color: #000000;
+    font-size: 40px;
+    left: 50%;
+    top: -12%;
+    transform: translateX(-50%);
+}
+
+
+/*PERSONAJE*/
+#character {
+    position: absolute;
+    z-index: 10;
+    height: 130px;
+    width: 94px;
+    left: 5px;
+    bottom: 0px;
+}
+
+.running {
+    background-size: 940px 130px !important;
+    background: url('../img/character-run.png') left center;
+    animation: run-animation 0.8s steps(11) infinite;
+}
+
+.dead {
+    background-size: 940px 130px !important;
+    background: url('../img/character-dead.png') left center;
+    animation: run-animation 2s steps(9) infinite;
+}
+
+.jumping {
+    background-size: 470px 130px !important;
+    background: url('../img/character-jump.png') left center;
+    animation: jump-animation 2s steps(4);
+    animation-fill-mode: forwards;
+}
+
+.falling {
+    background-size: 470px 130px !important;
+    background: url('../img/character-falling.png') left center;
+    animation: jump-animation 2s steps(4);
+    animation-fill-mode: forwards;
+}
+
+/*OBJETOS DEL JUEGO*/
+.ball {
+    position: absolute;
+    background-image: url('../img/ball.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 20;
+    width: 30px;
+    height: 30px;
+    left: -100px;
+    bottom: 100px;
+}
+
+.bonus {
+    position: absolute;
+    z-index: 10;
+    height: 70px;
+    width: 80px;
+    left: -100px;
+    bottom: 100px;
+    background-size: 470px 70px !important;
+    background: url('../img/bonus.png') left center;
+    animation: bonus-animation 1s steps(6) infinite;
+}
+
+/*ANIMACIONES*/
+
+@keyframes fallingSnow-animation {
+    100% {
+        background-position-y: +900px;
+    }
+}
+
+@keyframes clouds-animation {
+    100% {
+        background-position-x: -800px;
+    }
+}
+
+@keyframes mountain-animation {
+    100% {
+        background-position-x: -2048px;
+    }
+}
+
+@keyframes snow-animation {
+    100% {
+        background-position-x: -1600px;
+    }
+}
+
+@keyframes run-animation {
+    100% {
+        background-position: -940px;
+    }
+}
+
+@keyframes jump-animation {
+    0% {
+        background-position-x: 0;
+    }
+
+    100% {
+        background-position-x: -376px;
+    }
+}
+
+@keyframes bonus-animation {
+    100% {
+        background-position-x: -940px;
+    }
+}

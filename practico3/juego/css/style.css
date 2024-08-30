@@ -1,0 +1,21 @@
+.homeButton {
+    display: inline-block;
+    background-image: linear-gradient(to right, #3cc2ef, #ed6077);
+    color: #402f44; 
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+  }
+  
+  .homeButton:hover {
+    background-color: #666b80; 
+    transform: translateY(-2px);
+  }
